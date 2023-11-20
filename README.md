@@ -18,9 +18,9 @@ This repo is a part of the data storage and processing step.
 
 This repo contains codes that replicate the workflow used by the Wesleyan Media Project to perform image and video recogonition process on political ads through Amazon Web Services. The core functionality this repo provides includes:
 
-- Text Detecing from Videos: We call the AWS Rekogonition `GetTextDetection`API to extract text from videos.
-- Face Detecing from Videos: We call the AWS Rekogonition `GetFaceSearch` API to detect faces from videos. In addition, we also retrieve persons who matched WMP candidate list through variable "aws_face_vid"
-- Text Decting from Images: We call the AWS Rekognition `DetectText` API for images and return the detected text in a dictionary
+- Text Detection from Videos: We call the AWS Rekogonition `GetTextDetection`API to extract text from videos.
+- Face Detection from Videos: We call the AWS Rekogonition `GetFaceSearch` API to detect faces from videos. In addition, we also retrieve persons who matched WMP candidate list through variable "aws_face_vid"
+- Text Detection from Images: We call the AWS Rekognition `DetectText` API for images and return the detected text in a dictionary
 - Face Detection and Searching from Images: We call the AWS `DetectFaces` API to detect faces and facial attributes from imagesand; and `SearchFacesByImage`API to search for faces that matches an existing face collection
 
 ## Objective
@@ -51,7 +51,7 @@ If you want to store the output in S3 bucket, you can create an S3 resource sess
 aws s3 cp <source> <target> --recursive```
 ````
 
-- After you have your data ready, you can follow the image and video pipelines to process the recogonition tasks. Please make sure to replace the placeholder in the code with your own AWS credentials and file paths.
+- After you have your data ready, you can follow the image and video pipelines to process the recognition tasks. Please make sure to replace the placeholder in the code with your own AWS credentials and file paths.
 - Below are some dependencies you may need to install before running the code:
 
 ```bash
