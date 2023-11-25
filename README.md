@@ -18,8 +18,8 @@ This repository is a part of the data storage and processing step.
 
 This repository contains code that replicates the workflow used by the Wesleyan Media Project to perform image and video recogonition on political ads through the Amazon Rekognition service (AWS SDK for Python). The core functionality this repository includes:
 
-- A video processing module calls Amazon Rekognition video API to perform text detection, labels detection, face detection and face search (searching for faces that match an existing face collection) from video data. It also provides functions to create SNS Topic and SQS queue necessary for Rekognition video analysis.  
-- An image processing module calls Amazon Rekognition image API to perform text detection, face detection and face search. 
+- A video processing module calls Amazon Rekognition video API to perform text detection, labels detection, face detection and face search (searching for faces that match an existing face collection) on video data. It also provides functions to create SNS Topic and SQS queue necessary for Rekognition video analysis.  
+- An image processing module calls Amazon Rekognition image API to perform text detection, face detection and face search on image data. 
 - Functions in video and image modules that allow one-step parsing of WMP variables from Rekognition image and video analysis results
 - Code for creating a face collection with Rekognition which is necessary to run face search for both image and video processing. 
 - Tutorial notebooks to use the above modules and functions. 
