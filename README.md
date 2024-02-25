@@ -2,7 +2,7 @@
 
 Welcome! This repository is part of the Cross-platform Election Advertising Transparency initiatIVE (CREATIVE) project. CREATIVE is a joint infrastructure project of WMP and privacy-tech-lab at Wesleyan University. CREATIVE provides cross-platform integration and standardization of political ads collected from Google and Facebook.
 
-This repository is a part of the data storage and processing step.
+This repository is a part of the Data Processing step.
 
 ## Table of Contents
 
@@ -29,13 +29,12 @@ This repository contains code that replicates the workflow used by the Wesleyan 
 ## Objective
 
 Each of our repositories belongs to one or more of the following categories:
-
 - Data Collection
-- Data Storage & Processing
-- Preliminary Data Classification
-- Final Data Classification
+- Data Processing
+- Data Classification
+- Compiled Final Data
 
-This repository is part of the data storage and processing section.
+This repository is part of the Data Processing section.
 
 ## Data
 
