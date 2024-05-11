@@ -60,7 +60,7 @@ Image and video processing modules return the response data from Amazon Rekognit
 
 We also provided helper functions that parse WMP variables from the response data.
 
-These WMP variables are saved as columns `aws_ocr_img_text` (image ads), `aws_face_img` (image ads), `aws_face_vid` (video ads), `aws_ocr_video_text` (video ads) into our final output tables. Final output tables and access information can be found in [data-post-production](https://github.com/Wesleyan-Media-Project/data-post-production/tree/main). 
+These WMP variables parsed from Rekognition response data are saved as columns `aws_ocr_img_text` (image ads), `aws_face_img` (image ads), `aws_face_vid` (video ads), `aws_ocr_video_text` (video ads) into our final output tables. Description and access information of final output tables can be found in [data-post-production](https://github.com/Wesleyan-Media-Project/data-post-production/tree/main). 
 
 ## Thank You
 
