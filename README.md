@@ -56,9 +56,11 @@ Step Six: After you have your data stored in an S3 bucket, follow the tutorials 
 
 ## Results Storage
 
-Image and video processing modules return the response data from Amazon Rekognition API in a dictionary. They can be saved into JSON files. You may choose to either store the response data in Amazon S3 bucket or in your local machine. To store them in an S3 bucket, see the `tutorial.ipynb` in the `/code/image` and `/code/video` folder.
+Image and video processing modules return the response data from Amazon Rekognition API in a dictionary. They can be saved into JSON files. You may choose to either store the raw response data in Amazon S3 bucket or in your local machine. To store them in an S3 bucket, see the `tutorial.ipynb` in the `/code/image` and `/code/video` folder.
 
 We also provided helper functions that parse WMP variables from the response data.
+
+These WMP variables are saved as columns `aws_ocr_img_text` (image ads), `aws_face_img` (image ads), `aws_face_vid` (video ads), `aws_ocr_video_text` (video ads) into our final output tables. Final output tables and access information can be found in [data-post-production](https://github.com/Wesleyan-Media-Project/data-post-production/tree/main). 
 
 ## Thank You
 
