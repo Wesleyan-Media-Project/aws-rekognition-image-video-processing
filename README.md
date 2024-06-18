@@ -97,3 +97,9 @@ These WMP variables parsed from Rekognition response data are saved as columns `
     <img src="wmp-logo.png" width="218px" height="100px" alt="Wesleyan Media Project logo">
   </a>
 </p>
+
+<p align="center" style="display: flex; justify-content: center; align-items: center;">
+  <a href="https://privacytechlab.org/" style="margin-right: 20px;">
+    <img src="./plt_logo.png" width="200px" alt="privacy-tech-lab logo">
+  </a>
+</p>
