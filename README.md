@@ -1,10 +1,10 @@
-# Wesleyan Media Project - AWS Rekognition Image & Video Processing
+# CREATIVE --- AWS Rekognition Image & Video Processing
 
-Welcome! This repository contains code that replicates the workflow used by the Wesleyan Media Project to perform image and video recogonition on political ads through the Amazon Rekognition service (AWS SDK for Python).
+Welcome! This repo contains scripts for performing image and video recognition on political ads through the Amazon Rekognition service (AWS SDK for Python).
 
 This repo is a part of the [Cross-platform Election Advertising Transparency Initiative (CREATIVE)](https://www.creativewmp.com/). CREATIVE has the goal of providing the public with analysis tools for more transparency of political ads across online platforms. In particular, CREATIVE provides cross-platform integration and standardization of political ads collected from Google and Facebook. CREATIVE is a joint project of the [Wesleyan Media Project (WMP)](https://mediaproject.wesleyan.edu/) and the [privacy-tech-lab](https://privacytechlab.org/) at [Wesleyan University](https://www.wesleyan.edu).
 
-To analyze the different dimensions of political ad transparency we have developed an analysis pipeline. The scripts in this repo are part of the Data Processing Step in our pipeline.
+To analyze the different dimensions of political ad transparency we have developed an analysis pipeline. The scripts in this repo are part of the Data Processing step in our pipeline.
 
 ![A picture of the repo pipeline](CREATIVE_step2_032524.png)
 
@@ -19,52 +19,62 @@ To analyze the different dimensions of political ad transparency we have develop
 
 ![rekognition-pipeline](rekognition-pipeline.png)
 
-This repository contains code that works to perform image and video recogonition on political ads through the Amazon Rekognition service (AWS SDK for Python). The core functionality this repository includes:
+This repo contains scripts for performing image and video recognition on political ads through the Amazon Rekognition service (AWS SDK for Python). The core functionality that the scripts in this repo provide are:
 
-- A video processing module calls Amazon Rekognition video API to perform text detection, labels detection, face detection and face search (searching for faces that match an existing face collection) on video data. It also provides functions to create SNS Topic and SQS queue necessary for Rekognition video analysis.
-- An image processing module calls Amazon Rekognition image API to perform text detection, face detection and face search on image data.
-- Functions in video and image modules that allow one-step parsing of WMP variables from Rekognition image and video analysis results
-- Code for creating a face collection with Rekognition which is necessary to run face search for both image and video processing.
+- A video processing module calling the Amazon Rekognition video API to perform text detection, label detection, face detection and face search (searching for faces that match an existing face collection) on video data. The module also provides functions to create SNS Topic and SQS queue necessary for Rekognition video analysis.
+- An image processing module calling the Amazon Rekognition image API to perform text detection, face detection, and face search on image data.
+- Functions in video and image modules that allow one-step parsing of WMP variables from Rekognition image and video analysis results.
+- Code for creating a face collection with Rekognition, which is necessary to run face search for both image and video processing.
 - Tutorial notebooks to use the above modules and functions.
 
 ## 2. Setup
 
-Before running any of the code in this repo, make sure you have Python installed on your system. You can do so on the [official Python website](https://www.python.org/downloads/). In addition, install Jupyter Notebook by writing the following command in your terminal 'pip install jupyter'. From here, you should be able to run Jupyter Notebook by entering this command in your terminal 'jupyter notebook'
+Before running any of the code in this repo, make sure you have Python installed on your system. You can download Python from the [official Python website](https://www.python.org/downloads/). In addition, install Jupyter Notebook by writing the following command in your terminal:
 
-Below is an additional dependency you may need to install before running the code:
+```bash
+pip install jupyter
+```
+
+From here, you should be able to run Jupyter Notebook with:
+
+```bash
+jupyter notebook
+```
+
+Also, install the following dependency:
 
 ```bash
 pip install boto3
 ```
 
-1. To begin, you will need to register for AWS Services if you have not already done so. You can find more information about AWS Services [here](https://aws.amazon.com/).
+You will need to [register for an AWS account](https://aws.amazon.com/). Once you registered your account, proceed as follows:
 
-2. Create an Amazon S3 bucket to store the video and image data for processing via your AWS account.
+1. Create an Amazon S3 bucket to store the video and image data for processing via your AWS account.
 
-3. Create your [IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html).
+2. Create your [IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html).
 
-4. Configure your [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html). Otherwise, pass your credentials whenever calling Rekognition API.
+3. Configure your [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html). Otherwise, pass your credentials whenever calling the Rekognition API.
 
-5. After the above setup procedures, please follow the folder `/code/getting-started` to upload data to S3 bucket and create face collections.
+4. After the above setup procedures, please follow the instructions in the `/code/getting-started` folder, which contains code samples, to upload data to the S3 bucket and create face collections.
 
-```bash
-# Upload your face collection data, image data, video data from their local paths to respective Amazon S3 bucket destinations
-aws s3 cp <source> <target> --recursive
-```
+   ```bash
+   # Upload your face collection data, image data, video data from their local paths to respective Amazon S3 bucket destinations
+   aws s3 cp <source> <target> --recursive
+   ```
 
-6. After you have your data stored in an S3 bucket, follow the tutorials in the image and video folders to process the data based on your demands. Please make sure to replace the placeholders in the code with your own AWS credentials and file paths.
+5. After you have your data stored in an S3 bucket, follow the tutorials in the `/code/image` and `/code/video` folders to process the data based on your demands. Make sure to replace the placeholders in the code with your own AWS credentials and file paths.
 
 ## 3. Results Storage
 
-Image and video processing modules return the response data from Amazon Rekognition API in a dictionary. They can be saved into JSON files. You may choose to either store the raw response data in Amazon S3 bucket or in your local machine. To store them in an S3 bucket, see the `tutorial.ipynb` in the `/code/image` and `/code/video` folder.
+Image and video processing modules return the response data from the Amazon Rekognition API in a dictionary. They can be saved into JSON files. You may choose to either store the raw response data in Amazon S3 bucket or in your local machine. To store them in an S3 bucket, see the `tutorial.ipynb` in the `/code/image` and `/code/video` folders.
 
-We also provided helper functions that parse WMP variables from the response data.
+We also provide helper functions that parse WMP variables from the response data.
 
 These WMP variables parsed from Rekognition response data are saved as columns `aws_ocr_img_text` (image ads), `aws_face_img` (image ads), `aws_face_vid` (video ads), `aws_ocr_video_text` (video ads) into our final output tables. Description and access information of final output tables can be found in [data-post-production](https://github.com/Wesleyan-Media-Project/data-post-production/tree/main).
 
 ## 4. Thank You
 
-<p align="center"><strong>We would like to thank our financial supporters!</strong></p><br>
+<p align="center"><strong>We would like to thank our supporters!</strong></p><br>
 
 <p align="center">This material is based upon work supported by the National Science Foundation under Grant Numbers 2235006, 2235007, and 2235008.</p>
 
