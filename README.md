@@ -12,8 +12,9 @@ To analyze the different dimensions of political ad transparency we have develop
 
 - [1. Overview](#1-overview)
 - [2. Setup](#2-setup)
-- [3. Results Storage](#3-results-storage)
-- [4. Thank you!](#4-thank-you)
+- [3. Code Structure](#3-code-structure)
+- [4. Results Storage](#4-results-storage)
+- [5. Thank you!](#5-thank-you)
 
 ## 1. Overview
 
@@ -62,7 +63,7 @@ You will need to [register for an AWS account](https://aws.amazon.com/). Once yo
 
 5. After you have your data stored in an S3 bucket, follow the tutorials in the `/code/image` and `/code/video` folders to process the data based on your demands. Make sure to replace the placeholders in the code with your own AWS credentials and file paths.
 
-## 3. Code structure 
+## 3. Code Structure 
 You may simply refer to the image and video tutorial notebooks linked in the overview section and here to use the image and video ads processing modules in this repo. But if you would like to understand more about these modules, the following diagram illustrates the structure of the `code/` directory of this repo, the workflow, and the functionalities of each module. The first step is `code/getting-started` where you upload image and video data and create a face collection (for facial recognition purpose). 
 
 It branches into an image and a video module. An image module takes in a .jpg or .png file as input, perform different types of image analysis based on user's needs (extract text, faces or facial recognition). Then it offers instructions to store the Amazon Rekognition Image response data in an Amazon S3 bucket and utility functions to parse the reponses into WMP variables (`aws_ocr_img_text` and `aws_face_img`) that appear in our final datasets. Tutorial for using the image module is [here](https://github.com/Wesleyan-Media-Project/aws-rekognition-image-video-processing/blob/main/code/image/tutorial.ipynb). 
