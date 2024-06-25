@@ -20,11 +20,13 @@ To analyze the different dimensions of political ad transparency we have develop
 
 This repo contains scripts for performing image and video recognition on political ads through the Amazon Rekognition service (AWS SDK for Python). The core functionality that the scripts in this repo provide are:
 
-- A video processing module calling the Amazon Rekognition video API to perform text detection, label detection, face detection and face search (searching for faces that match an existing face collection) on video data. The module also provides functions to create SNS Topic and SQS queue necessary for Rekognition video analysis.
+- A video processing module calling the Amazon Rekognition video API to perform text detection, label detection, face detection and face search (searching for faces that match an existing face collection) on video data. The module also provides functions to create [Simple Notification Service](https://docs.aws.amazon.com/sns/latest/dg/welcome.html) (SNS) topic and [Simple Queue Service](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.html) (SQS) queue necessary for Rekognition video analysis.
 - An image processing module calling the Amazon Rekognition image API to perform text detection, face detection, and face search on image data.
-- Functions in video and image modules that allow one-step parsing of WMP variables from Rekognition image and video analysis results.
+- Functions in video and image modules that allow one-step parsing of WMP variables from Rekognition image and video analysis results: Four separate functions parse the standard response data of face/text detection and facial recognition into these four columns in our final 2022 political advertising data: `aws_ocr_img_text` (image ads), `aws_face_img` (image ads), `aws_face_vid` (video ads), `aws_ocr_video_text` (video ads). 
 - Code for creating a face collection with Rekognition, which is necessary to run face search for both image and video processing.
 - Tutorial notebooks to use the above modules and functions ([video processing tutorial](https://github.com/Wesleyan-Media-Project/aws-rekognition-image-video-processing/blob/main/code/video/tutorial.ipynb), [image processing tutorial](https://github.com/Wesleyan-Media-Project/aws-rekognition-image-video-processing/blob/main/code/image/tutorial.ipynb).
+
+For background information, please consult the workflow description of [Amazon Rekognition image and video pipelines](https://github.com/aws-samples/amazon-rekognition-serverless-large-scale-image-and-video-processing/blob/main/README.md) by AWS. 
 
 ## 2. Setup
 
