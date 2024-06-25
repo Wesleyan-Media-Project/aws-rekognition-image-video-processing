@@ -50,17 +50,17 @@ pip install boto3
 
 You will need to [register for an AWS account](https://aws.amazon.com/). Once you registered your account, proceed as follows:
 
-1. Create an Amazon S3 bucket to store the video and image data for processing via your AWS account.
+1. Create an Amazon S3 bucket to store the video and image data for processing via your AWS account ([instructions to create an Amazon S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html)).
 
-2. Create your [IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html).
+2. Create your [IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) following [this instruction](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html).
 
-3. Configure your [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html). Otherwise, pass your credentials whenever calling the Rekognition API.
+3. Configure your [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html) in the environment where you will run the image and video analysis using your *access key* and *secret access key* (create your access keys first following [this instruction](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_access-keys.html).
 
 4. After the above setup procedures, please follow the instructions in the `/code/getting-started` folder, which contains code samples, to upload data to the S3 bucket and create face collections.
 
    ```bash
    # Upload your face collection data, image data, video data from their local paths to respective Amazon S3 bucket destinations
-   aws s3 cp <source> <target> --recursive
+   aws s3 cp <source> <target> --recursive % Replace the source and target with your local source directory and the target directory on S3
    ```
 
 5. After you have your data stored in an S3 bucket, follow the tutorials in the `/code/image` and `/code/video` folders to process the data based on your demands. Make sure to replace the placeholders in the code with your own AWS credentials and file paths.
