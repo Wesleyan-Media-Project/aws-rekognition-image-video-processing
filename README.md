@@ -17,15 +17,13 @@ To analyze the different dimensions of political ad transparency we have develop
 
 ## 1. Overview
 
-![rekognition-pipeline](rekognition-pipeline.png)
-
 This repo contains scripts for performing image and video recognition on political ads through the Amazon Rekognition service (AWS SDK for Python). The core functionality that the scripts in this repo provide are:
 
 - A video processing module calling the Amazon Rekognition video API to perform text detection, label detection, face detection and face search (searching for faces that match an existing face collection) on video data. The module also provides functions to create SNS Topic and SQS queue necessary for Rekognition video analysis.
 - An image processing module calling the Amazon Rekognition image API to perform text detection, face detection, and face search on image data.
 - Functions in video and image modules that allow one-step parsing of WMP variables from Rekognition image and video analysis results.
 - Code for creating a face collection with Rekognition, which is necessary to run face search for both image and video processing.
-- Tutorial notebooks to use the above modules and functions.
+- Tutorial notebooks to use the above modules and functions ([video processing tutorial](https://github.com/Wesleyan-Media-Project/aws-rekognition-image-video-processing/blob/main/code/video/tutorial.ipynb), [image processing tutorial](https://github.com/Wesleyan-Media-Project/aws-rekognition-image-video-processing/blob/main/code/image/tutorial.ipynb).
 
 ## 2. Setup
 
@@ -64,7 +62,16 @@ You will need to [register for an AWS account](https://aws.amazon.com/). Once yo
 
 5. After you have your data stored in an S3 bucket, follow the tutorials in the `/code/image` and `/code/video` folders to process the data based on your demands. Make sure to replace the placeholders in the code with your own AWS credentials and file paths.
 
-## 3. Results Storage
+## 3. Code structure 
+You may simply refer to the image and video tutorial notebooks linked in the overview section and here to use the image and video ads processing modules in this repo. But if you would like to understand more about these modules, the following diagram illustrates the structure of the `code/` directory of this repo, the workflow, and the functionalities of each module. The first step is `code/getting-started` where you upload image and video data and create a face collection (for facial recognition purpose). 
+
+It branches into an image and a video module. An image module takes in a .jpg or .png file as input, perform different types of image analysis based on user's needs (extract text, faces or facial recognition). Then it offers instructions to store the Amazon Rekognition Image response data in an Amazon S3 bucket and utility functions to parse the reponses into WMP variables (`aws_ocr_img_text` and `aws_face_img`) that appear in our final datasets. Tutorial for using the image module is [here](https://github.com/Wesleyan-Media-Project/aws-rekognition-image-video-processing/blob/main/code/image/tutorial.ipynb). 
+
+Similarly, the video module takes a video file as input and allows functionalities of text/face detection and facial recognition. It also provides utility functions to store the data locally or in an S3 bucket and to parse the Amazon Rekognition Video reponse data into WMP variables (`aws_ocr_video_text` and `aws_face_vid` -- columns in our final data for 2022 political advertising). Tutorial for using the video module is [here](https://github.com/Wesleyan-Media-Project/aws-rekognition-image-video-processing/blob/main/code/video/tutorial.ipynb). 
+
+![rekognition-pipeline](rekognition-pipeline.png)
+
+## 4. Results Storage
 
 Image and video processing modules return the response data from the Amazon Rekognition API in a dictionary. They can be saved into JSON files. You may choose to either store the raw response data in Amazon S3 bucket or in your local machine. To store them in an S3 bucket, see the `tutorial.ipynb` in the `/code/image` and `/code/video` folders.
 
@@ -72,7 +79,7 @@ We also provide helper functions that parse WMP variables from the response data
 
 These WMP variables parsed from Rekognition response data are saved as columns `aws_ocr_img_text` (image ads), `aws_face_img` (image ads), `aws_face_vid` (video ads), `aws_ocr_video_text` (video ads) into our final output tables. Description and access information of final output tables can be found in [data-post-production](https://github.com/Wesleyan-Media-Project/data-post-production/tree/main).
 
-## 4. Thank You
+## 5. Thank You
 
 <p align="center"><strong>We would like to thank our supporters!</strong></p><br>
 
