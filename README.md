@@ -60,8 +60,9 @@ You will need to [register for an AWS account](https://aws.amazon.com/). Once yo
 
    ```bash
    # Upload your face collection data, image data, video data from their local paths to respective Amazon S3 bucket destinations
-   aws s3 cp <source> <target> --recursive % Replace the source and target with your local source directory and the target directory on S3
+   aws s3 cp <source> <target> --recursive  # Replace the source and target with your local source directory and the target directory on S3
    ```
+Additional information on uploading data from your local machine to an Amazon S3 bucket using AWS CLI can refer to [this page](https://docs.aws.amazon.com/cli/v1/userguide/cli-services-s3-commands.html). 
 
 5. After you have your data stored in an S3 bucket, follow the tutorials in the `/code/image` and `/code/video` folders to process the data based on your demands. Make sure to replace the placeholders in the code with your own AWS credentials and file paths.
 
