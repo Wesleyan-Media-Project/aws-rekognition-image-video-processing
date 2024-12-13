@@ -63,7 +63,7 @@ class ImageProc:
             
             return {'FaceDetails': response['FaceDetails']}
     
-    def search_faces(self, collection_id, maxFaces=2, faceMatchThreshold=0.7):
+    def search_faces(self, collection_id, maxFaces=2, faceMatchThreshold=70):
         '''
         call Rekognition SearchFaces API for images and return the recognized face IDs based on the existing face collection
         '''
