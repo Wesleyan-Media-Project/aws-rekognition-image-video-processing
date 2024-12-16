@@ -255,7 +255,7 @@ class VideoProc:
 
     # ============== Face Search ===============
     
-    def StartFaceSearchCollection(self, collection, MatchThreshold=0.7):
+    def StartFaceSearchCollection(self, collection, MatchThreshold=80):
         
         token = 'tok-' + str(int(round(time.time() * 1000)))
         
